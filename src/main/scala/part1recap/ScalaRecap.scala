@@ -1,21 +1,22 @@
 package part1recap
 
+
 import scala.concurrent.Future
-import scala.util.{Failure, Success}
+import scala.util.Success
+import scala.util.Failure
 
 object ScalaRecap extends App {
-
   // values and variables
-  val aBoolean: Boolean = false
+  val aBoolean:  Boolean = false
 
   // expressions
   val anIfExpression = if(2 > 3) "bigger" else "smaller"
 
   // instructions vs expressions
-  val theUnit = println("Hello, Scala") // Unit = "no meaningful value" = void in other languages
+  val theUnit = println("Hello, Scala") // Unit = "No meaningful value" = void in other languages
 
   // functions
-  def myFunction(x: Int) = 42
+  def myFunctions(x: Int) = 42
 
   // OOP
   class Animal
@@ -30,7 +31,6 @@ object ScalaRecap extends App {
 
   // singleton pattern
   object MySingleton
-
   // companions
   object Carnivore
 
@@ -39,16 +39,16 @@ object ScalaRecap extends App {
 
   // method notation
   val x = 1 + 2
-  val y = 1.+(2)
+  val y = 1. + (2)
 
-  // Functional Programming
+  // Functional programming
   val incrementer: Int => Int = x => x + 1
   val incremented = incrementer(42)
 
   // map, flatMap, filter
-  val processedList = List(1,2,3).map(incrementer)
+  val processedList = List(1, 2, 3).map(incrementer)
 
-  // Pattern Matching
+  // pattern Matching
   val unknown: Any = 45
   val ordinal = unknown match {
     case 1 => "first"
@@ -60,8 +60,8 @@ object ScalaRecap extends App {
   try {
     throw new NullPointerException
   } catch {
-    case _: NullPointerException => "some returned value"
-    case _: Throwable => "something else"
+    case e: NullPointerException => "some return value"
+    case _ => "return something else"
   }
 
   // Future
@@ -77,7 +77,7 @@ object ScalaRecap extends App {
   }
 
   // Partial functions
-  val aPartialFunction: PartialFunction[Int, Int] = {
+  val aPartialFinction: PartialFunction[Int, Int] = {
     case 1 => 43
     case 8 => 56
     case _ => 999
@@ -88,13 +88,13 @@ object ScalaRecap extends App {
   // auto-injection by the compiler
   def methodWithImplicitArgument(implicit x: Int) = x + 43
   implicit val implicitInt = 67
+
   val implicitCall = methodWithImplicitArgument
 
   // implicit conversions - implicit defs
   case class Person(name: String) {
     def greet = println(s"Hi, my name is $name")
   }
-
   implicit def fromStringToPerson(name: String) = Person(name)
   "Bob".greet // fromStringToPerson("Bob").greet
 
@@ -103,11 +103,9 @@ object ScalaRecap extends App {
     def bark = println("Bark!")
   }
   "Lassie".bark
-
-  /*
-    - local scope
-    - imported scope
-    - companion objects of the types involved in the method call
-   */
-
+/*
+- local scope
+- imported scope
+- companion object of the types involved in the method call
+ */
 }
