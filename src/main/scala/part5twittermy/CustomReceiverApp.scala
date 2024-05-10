@@ -23,7 +23,7 @@ class CustomSocketReceiver(host: String, port: Int) extends Receiver[String](Sto
     // run on another thread
     Future {
       Source.fromInputStream(socket.getInputStream)
-        .getLines()
+        .getLines() 
         .foreach(line => store(line)) // store makes this string available to Spark
     }
 
